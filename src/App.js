@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import { Container, Grid } from 'semantic-ui-react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// components
+import SearchBar from './components/SearchBar'
+
+class App extends Component {
+
+  searchPics = value => {
+    console.log(value);
+  }
+
+  render() {
+    return (
+      <Container>
+        <Grid centered columns={3}>
+          <Grid.Row>
+            <Grid.Column>
+              <SearchBar searchValue={this.searchPics} />
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Container>
+    );
+  }
 }
 
 export default App;
