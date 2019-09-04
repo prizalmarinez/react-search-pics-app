@@ -18,12 +18,13 @@ class SearchBar extends Component {
     }
 
     render() {
+        console.log(this.props.loading);
         return (
             <div className="mt-50">
                 <Form onSubmit={this.onSubmit}>
                     <Form.Field>
                         <label>Search Images</label>
-                        <Input icon='search' placeholder='Search...' value={this.state.searchValue} onChange={this.onChange} />
+                        <Input loading={this.props.loading} icon='search' placeholder='Search...' value={this.state.searchValue} onChange={this.onChange} />
                     </Form.Field>
                 </Form>
             </div>
