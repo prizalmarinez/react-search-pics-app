@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Container, Grid } from 'semantic-ui-react';
-import axios from 'axios';
 // components
 import SearchBar from './components/SearchBar'
 import Photos from './components/Photos'
 import Navbar from './components/Navbar'
+// Api
+import unsplash from './api/unsplash'
+
 
 class App extends Component {
   state = {
@@ -13,15 +15,12 @@ class App extends Component {
     loading: false
   }
 
-  searchPics = value => {
+  searchPics = async value => {
     this.setState({ loading: true });
-    axios.get('https://api.unsplash.com/search/photos', {
+    await unsplash.get('/search/photos', {
       params: {
         query: value,
         per_page: 30
-      },
-      headers: {
-        Authorization: 'Client-ID aa9398800730d21ab7e0645859c94b6c1a2559978c8f43d6f3880b4f1147ec82'
       }
     })
       .then(res => this.setState({ photos: res.data.results, loading: false }))

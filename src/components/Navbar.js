@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu } from 'semantic-ui-react'
+import { Menu, Icon } from 'semantic-ui-react'
 
 const Navbar = () => {
     return (
@@ -7,6 +7,11 @@ const Navbar = () => {
             <Menu>
                 <Menu.Item header>
                     React Search Pics Application
+                </Menu.Item>
+                <Menu.Item position="right">
+                    <a href="https://github.com/prizalmarinez?tab=repositories" target="_blank">
+                        <Icon name="github" />
+                    </a>
                 </Menu.Item>
             </Menu>
         </div>
